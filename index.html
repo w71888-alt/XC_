@@ -2,112 +2,134 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>XC_ Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: radial-gradient(circle at 20% 20%, #1a1a1a, #000000 60%);
-    }
-  </style>
 </head>
-<body class="text-white">
 
-  <!-- NAVBAR -->
-  <header class="flex justify-between items-center px-8 py-5">
-    <div class="flex items-center gap-4">
-      <img src="logo.png" class="h-16" />
-      <span class="text-2xl font-bold">XC_ Agency</span>
-    </div>
-    <button onclick="openModal()" class="bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-2 rounded-full">
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- 顶部栏（像抖音手机版） -->
+  <div class="fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-black/60 backdrop-blur z-50">
+    <img src="logo.jpg" class="h-10" />
+    <button onclick="openModal()" class="bg-white text-black px-4 py-1 rounded-full text-sm">
       Aplicar
     </button>
-  </header>
+  </div>
 
-  <!-- HERO (类似抖音风格大屏) -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-6xl md:text-8xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-      Gana Dinero en TikTok LIVE
-    </h1>
+  <!-- 主视频区域（仿抖音滑动） -->
+  <div class="pt-16">
 
-    <p class="text-gray-400 text-lg max-w-xl mb-10">
-      Únete a XC_ Agency y conviértete en un streamer profesional.
-      Gana dinero real desde casa.
-    </p>
+    <!-- 视频卡片1 -->
+    <section class="h-screen relative flex items-end px-4 pb-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 
-    <button onclick="openModal()" class="bg-white text-black px-10 py-4 rounded-full text-lg">
-      Aplicar Ahora
-    </button>
-  </section>
+      <div class="relative z-10">
+        <h1 class="text-3xl font-bold mb-2">Gana dinero en TikTok</h1>
+        <p class="text-gray-300 text-sm mb-4">Empieza hoy sin experiencia</p>
+        <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-full">
+          Aplicar Ahora
+        </button>
+      </div>
 
-  <!-- VIDEO STYLE GRID（模仿抖音内容感） -->
-  <section class="py-20 px-6 max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-    <div class="bg-white/10 h-40 rounded-xl"></div>
-  </section>
-
-  <!-- INGRESOS -->
-  <section class="py-24 text-center">
-    <h2 class="text-4xl font-bold mb-6">¿Cuánto puedes ganar?</h2>
-    <p class="text-gray-400 mb-10">Desde $100 hasta más de $3000 USD al mes</p>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-24 text-center">
-    <button onclick="openModal()" class="bg-gradient-to-r from-pink-500 to-purple-600 px-12 py-5 rounded-full text-xl">
-      Unirme Ahora
-    </button>
-  </section>
-
-  <!-- MODAL -->
-  <div id="modal" class="fixed inset-0 bg-black/90 hidden items-center justify-center">
-    <div class="bg-[#111] p-8 rounded-2xl max-w-3xl w-full">
-      <h2 class="text-2xl font-bold mb-6 text-center">Selecciona un asesor</h2>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div onclick="goLink('https://link1.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=1" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Maria MX</p>
+      <!-- 右侧按钮区 -->
+      <div class="absolute right-4 bottom-32 flex flex-col items-center gap-6">
+        <div class="text-center">
+          <img src="https://i.pravatar.cc/60?img=1" class="rounded-full mb-1" />
+          <p class="text-xs">+Seguir</p>
         </div>
-        <div onclick="goLink('https://link2.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=2" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Juan Live</p>
+        <div class="text-center text-sm">❤️<br>1.2K</div>
+        <div class="text-center text-sm">💬<br>320</div>
+      </div>
+    </section>
+
+    <!-- 视频卡片2 -->
+    <section class="h-screen relative flex items-end px-4 pb-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+
+      <div class="relative z-10">
+        <h1 class="text-3xl font-bold mb-2">Gana hasta $3000 USD</h1>
+        <p class="text-gray-300 text-sm mb-4">Nuestros streamers ya lo hacen</p>
+        <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-full">
+          Aplicar Ahora
+        </button>
+      </div>
+
+      <div class="absolute right-4 bottom-32 flex flex-col items-center gap-6">
+        <div class="text-center">
+          <img src="https://i.pravatar.cc/60?img=2" class="rounded-full mb-1" />
+          <p class="text-xs">+Seguir</p>
         </div>
-        <div onclick="goLink('https://link3.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=3" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Sofia Pro</p>
+        <div class="text-center text-sm">🔥<br>2.5K</div>
+        <div class="text-center text-sm">💬<br>500</div>
+      </div>
+    </section>
+
+    <!-- 视频卡片3 -->
+    <section class="h-screen relative flex items-end px-4 pb-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+
+      <div class="relative z-10">
+        <h1 class="text-3xl font-bold mb-2">Trabaja desde casa</h1>
+        <p class="text-gray-300 text-sm mb-4">Solo necesitas tu teléfono</p>
+        <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-full">
+          Aplicar Ahora
+        </button>
+      </div>
+
+      <div class="absolute right-4 bottom-32 flex flex-col items-center gap-6">
+        <div class="text-center">
+          <img src="https://i.pravatar.cc/60?img=3" class="rounded-full mb-1" />
+          <p class="text-xs">+Seguir</p>
         </div>
-        <div onclick="goLink('https://link4.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=4" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Carlos TV</p>
+        <div class="text-center text-sm">⭐<br>3.1K</div>
+        <div class="text-center text-sm">💬<br>800</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 弹窗 -->
+  <div id="modal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
+    <div class="bg-[#111] p-6 rounded-2xl w-[90%] max-w-md">
+      <h2 class="text-lg font-bold mb-4 text-center">Selecciona un asesor</h2>
+
+      <div class="grid grid-cols-4 gap-4">
+        <div onclick="goLink('https://link1.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=1" class="rounded-full mx-auto" />
+          <p class="text-xs">Maria</p>
         </div>
-        <div onclick="goLink('https://link5.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=5" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Ana Star</p>
+        <div onclick="goLink('https://link2.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=2" class="rounded-full mx-auto" />
+          <p class="text-xs">Juan</p>
         </div>
-        <div onclick="goLink('https://link6.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=6" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Diego Live</p>
+        <div onclick="goLink('https://link3.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=3" class="rounded-full mx-auto" />
+          <p class="text-xs">Sofia</p>
         </div>
-        <div onclick="goLink('https://link7.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=7" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Lucia Pro</p>
+        <div onclick="goLink('https://link4.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=4" class="rounded-full mx-auto" />
+          <p class="text-xs">Carlos</p>
         </div>
-        <div onclick="goLink('https://link8.com')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=8" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
-          <p>Pedro MX</p>
+        <div onclick="goLink('https://link5.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=5" class="rounded-full mx-auto" />
+          <p class="text-xs">Ana</p>
+        </div>
+        <div onclick="goLink('https://link6.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=6" class="rounded-full mx-auto" />
+          <p class="text-xs">Diego</p>
+        </div>
+        <div onclick="goLink('https://link7.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=7" class="rounded-full mx-auto" />
+          <p class="text-xs">Lucia</p>
+        </div>
+        <div onclick="goLink('https://link8.com')" class="text-center">
+          <img src="https://i.pravatar.cc/60?img=8" class="rounded-full mx-auto" />
+          <p class="text-xs">Pedro</p>
         </div>
       </div>
 
-      <div class="text-center mt-6">
-        <button onclick="closeModal()" class="text-gray-400">Cerrar</button>
-      </div>
+      <button onclick="closeModal()" class="mt-4 w-full text-gray-400 text-sm">Cerrar</button>
     </div>
   </div>
 
