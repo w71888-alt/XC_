@@ -50,13 +50,19 @@
             font-weight: bold;
             color: #1a1a1a;
         }
-        .header-actions button {
-            background-color: transparent;
+
+        /* 右上角申请按钮 */
+        .header-apply-btn {
+            background: linear-gradient(90deg, #fe2c55, #ff5e62);
+            color: #fff;
             border: none;
-            color: #666;
-            font-size: 20px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
         }
+
         /* 英雄区 */
         .hero {
             background: linear-gradient(135deg, #0a2a3a 0%, #1a3a4a 50%, #0f2a3a 100%);
@@ -281,18 +287,17 @@
     </style>
 </head>
 <body>
+
     <!-- 头部导航 -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="logo.png" alt="xc_机构 Logo" class="logo-img">
-                    <div class="logo-text">xc_机构</div>
+                    <img src="logo.png" alt="xc_Agencia Logo" class="logo-img">
+                    <div class="logo-text">xc_Agencia</div>
                 </div>
-                <div class="header-actions">
-                    <button><i class="fa fa-search"></i></button>
-                    <button><i class="fa fa-user"></i></button>
-                </div>
+                <!-- 右上角立即申请按钮 -->
+                <button class="header-apply-btn" onclick="abrirModal()">Solicitar Ahora</button>
             </div>
         </div>
     </header>
