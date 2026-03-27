@@ -1,414 +1,253 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XC_Institución | Guild de Streaming de Entretenimiento</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-        /* 头部导航 */
-        header {
-            background-color: #fff;
-            padding: 12px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo-img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-        .logo-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #1a1a1a;
-        }
-        .header-actions button {
-            background-color: transparent;
-            border: none;
-            color: #666;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        /* 英雄区 */
-        .hero {
-            background: linear-gradient(135deg, #0a2a3a 0%, #1a3a4a 50%, #0f2a3a 100%);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 28px;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 16px;
-            opacity: 0.8;
-            max-width: 400px;
-            margin: 0 auto 24px;
-        }
-        .btn-primary {
-            background: linear-gradient(90deg, #fe2c55, #ff5e62);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 24px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(254,44,85,0.3);
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(254,44,85,0.4);
-        }
-        /* 特色板块 */
-        .features {
-            padding: 40px 0;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        .section-title span {
-            display: inline-block;
-            padding: 4px 12px;
-            background-color: #fe2c551a;
-            color: #fe2c55;
-            border-radius: 16px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-        .section-title h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-        }
-        .feature-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        .feature-card {
-            background-color: white;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background-color: #fe2c551a;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fe2c55;
-            font-size: 20px;
-            margin-bottom: 16px;
-        }
-        .feature-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #1a1a1a;
-        }
-        .feature-card p {
-            font-size: 14px;
-            color: #666;
-        }
-        /* 主播展示 */
-        .streamers {
-            padding: 40px 0;
-            background-color: #f9f9f9;
-        }
-        .streamer-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-        .streamer-card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-        .streamer-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-        .streamer-info {
-            padding: 12px;
-        }
-        .streamer-name {
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-        .streamer-category {
-            font-size: 12px;
-            color: #666;
-        }
-        /* 申请弹窗 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 200;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: white;
-            border-radius: 16px;
-            padding: 24px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        .modal-close {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 24px;
-            color: #666;
-            cursor: pointer;
-        }
-        .modal-title {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        .avatar-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-        .avatar-item {
-            text-align: center;
-        }
-        .avatar-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #fe2c55;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .avatar-img:hover {
-            transform: scale(1.05);
-        }
-        .avatar-name {
-            margin-top: 8px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        /* 页脚 */
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 24px 0;
-            text-align: center;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover {
-            color: #fe2c55;
-        }
-        .copyright {
-            font-size: 12px;
-            color: #999;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XC_机构 | Guild de Streaming</title>
+<style>
+    * {
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+        background:#f2f3f5;
+        color:#333;
+    }
+    .container {
+        max-width:600px;
+        margin:0 auto;
+        padding:0 16px;
+    }
+    header {
+        background:#fff;
+        padding:12px 0;
+        box-shadow:0 1px 2px rgba(0,0,0,0.05);
+        position:sticky;
+        top:0;
+        z-index:90;
+    }
+    .header-content {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .logo {
+        display:flex;
+        align-items:center;
+        gap:8px;
+    }
+    .logo img {
+        width:32px;
+        height:32px;
+        border-radius:6px;
+        object-fit:cover;
+    }
+    .logo-text {
+        font-size:17px;
+        font-weight:700;
+        color:#111;
+    }
+    .btn-primary {
+        background:linear-gradient(90deg, #fe2c55, #ff5a60);
+        color:#fff;
+        border:none;
+        padding:12px 26px;
+        border-radius:30px;
+        font-size:16px;
+        font-weight:600;
+        cursor:pointer;
+        box-shadow:0 4px 10px rgba(254,44,85,0.2);
+    }
+    .hero {
+        background:linear-gradient(135deg, #111 0%, #222 100%);
+        color:#fff;
+        padding:50px 0;
+        text-align:center;
+    }
+    .hero h1 {
+        font-size:24px;
+        margin-bottom:12px;
+    }
+    .hero p {
+        font-size:15px;
+        opacity:0.85;
+        margin-bottom:22px;
+    }
+    .modal {
+        display:none;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.6);
+        z-index:100;
+        justify-content:center;
+        align-items:center;
+    }
+    .modal-box {
+        background:#fff;
+        width:90%;
+        max-width:380px;
+        border-radius:20px;
+        padding:24px;
+        position:relative;
+    }
+    .modal-close {
+        position:absolute;
+        top:16px;
+        right:18px;
+        font-size:22px;
+        color:#666;
+        background:none;
+        border:none;
+        cursor:pointer;
+    }
+    .modal-title {
+        text-align:center;
+        font-size:18px;
+        font-weight:600;
+        margin-bottom:24px;
+    }
+    .avatar-grid {
+        display:grid;
+        grid-template-columns:repeat(4, 1fr);
+        gap:16px 12px;
+    }
+    .avatar-item {
+        text-align:center;
+    }
+    .avatar-item a {
+        display:inline-block;
+    }
+    .avatar-item img {
+        width:60px;
+        height:60px;
+        border-radius:50%;
+        object-fit:cover;
+        border:2px solid #fe2c55;
+    }
+    .avatar-name {
+        margin-top:6px;
+        font-size:12px;
+        color:#333;
+        font-weight:500;
+    }
+    .section {
+        padding:40px 0;
+        text-align:center;
+    }
+    footer {
+        background:#111;
+        color:#fff;
+        padding:20px 0;
+        text-align:center;
+        font-size:12px;
+    }
+</style>
 </head>
 <body>
-    <!-- 头部导航 -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="logo.png" alt="XC_Institución Logo" class="logo-img">
-                    <div class="logo-text">XC_Institución</div>
-                </div>
-                <div class="header-actions">
-                    <button><<i class="fa fa-search"></</i></button>
-                    <button><<i class="fa fa-user"></</i></button>
-                </div>
+
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+                <div class="logo-text">XC_机构</div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- 英雄区 -->
-    <section class="hero">
-        <div class="container">
-            <h1>Únete a Nuestra Guild de Streaming de Entretenimiento</h1>
-            <p>Conviértete en parte de la comunidad de streamers más vibrante de Latinoamérica y crece junto a nosotros.</p>
-            <button class="btn-primary" id="applyBtn">Solicitar Ahora</button>
-        </div>
-    </section>
+<section class="hero">
+    <div class="container">
+        <h1>Únete a Nuestra Guild</h1>
+        <p>Conviértete en streamer y crece con nosotros en Latinoamérica.</p>
+        <button class="btn-primary" onclick="openModal()">Solicitar Ahora</button>
+    </div>
+</section>
 
-    <!-- 特色板块 -->
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <span>Nuestras Ventajas</span>
-                <h2>Por Qué Elegirnos</h2>
-            </div>
-            <div class="feature-cards">
-                <div class="feature-card">
-                    <div class="feature-icon"><<i class="fa fa-users"></</i></div>
-                    <h3>Comunidad Apoyativa</h3>
-                    <p>Conéctate con otros streamers, comparte experiencias y aprende juntos.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><<i class="fa fa-bullhorn"></</i></div>
-                    <h3>Promoción Exclusiva</h3>
-                    <p>Obtén exposición en nuestras plataformas y eventos para aumentar tu audiencia.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><<i class="fa fa-money"></</i></div>
-                    <h3>Oportunidades de Ingreso</h3>
-                    <p>Accede a patrocinios, colaboraciones y programas de monetización exclusivos.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><<i class="fa fa-graduation-cap"></</i></div>
-                    <h3>Formación Profesional</h3>
-                    <p>Recibe capacitación en contenido, crecimiento y gestión de tu canal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section">
+    <div class="container">
+        <button class="btn-primary" onclick="openModal()">Solicitar Ahora</button>
+    </div>
+</section>
 
-    <!-- 主播展示 -->
-    <section class="streamers">
-        <div class="container">
-            <div class="section-title">
-                <span>Nuestros Streamers</span>
-                <h2>Conoce a Nuestra Familia</h2>
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-title">Contacta con nosotros</div>
+        <div class="avatar-grid">
+            <div class="avatar-item">
+                <a href="https://sitio1.com" target="_blank">
+                    <img src="https://picsum.photos/id/101/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Luis</div>
             </div>
-            <div class="streamer-grid">
-                <div class="streamer-card">
-                    <img src="https://picsum.photos/id/1012/300/200" alt="Streamer 1">
-                    <div class="streamer-info">
-                        <div class="streamer-name">AnaGamer</div>
-                        <div class="streamer-category">Videojuegos</div>
-                    </div>
-                </div>
-                <div class="streamer-card">
-                    <img src="https://picsum.photos/id/1027/300/200" alt="Streamer 2">
-                    <div class="streamer-info">
-                        <div class="streamer-name">CarlosShow</div>
-                        <div class="streamer-category">Entretenimiento</div>
-                    </div>
-                </div>
-                <div class="streamer-card">
-                    <img src="https://picsum.photos/id/1025/300/200" alt="Streamer 3">
-                    <div class="streamer-info">
-                        <div class="streamer-name">SofiaLive</div>
-                        <div class="streamer-category">Belleza</div>
-                    </div>
-                </div>
-                <div class="streamer-card">
-                    <img src="https://picsum.photos/id/1074/300/200" alt="Streamer 4">
-                    <div class="streamer-info">
-                        <div class="streamer-name">DiegoFun</div>
-                        <div class="streamer-category">Humor</div>
-                    </div>
-                </div>
+            <div class="avatar-item">
+                <a href="https://sitio2.com" target="_blank">
+                    <img src="https://picsum.photos/id/102/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Ana</div>
+            </div>
+            <div class="avatar-item">
+                <a href="https://sitio3.com" target="_blank">
+                    <img src="https://picsum.photos/id/103/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Carlos</div>
+            </div>
+            <div class="avatar-item">
+                <a href="https://sitio4.com" target="_blank">
+                    <img src="https://picsum.photos/id/104/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Sofia</div>
+            </div>
+            <div class="avatar-item">
+                <a href="https://sitio5.com" target="_blank">
+                    <img src="https://picsum.photos/id/105/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Diego</div>
+            </div>
+            <div class="avatar-item">
+                <a href="https://sitio6.com" target="_blank">
+                    <img src="https://picsum.photos/id/106/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Valeria</div>
+            </div>
+            <div class="avatar-item">
+                <a href="https://sitio7.com" target="_blank">
+                    <img src="https://picsum.photos/id/107/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Javier</div>
+            </div>
+            <div class="avatar-item">
+                <a href="https://sitio8.com" target="_blank">
+                    <img src="https://picsum.photos/id/108/100" alt="Avatar">
+                </a>
+                <div class="avatar-name">Camila</div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- 申请区域 -->
-    <section class="apply-section">
-        <div class="container">
-            <div class="section-title">
-                <span>¡Únete!</span>
-                <h2>Forma Parte de XC_Institución</h2>
-            </div>
-            <p>Si te apasiona el streaming y quieres crecer como profesional, no esperes más. Solicita tu ingreso a nuestra guild.</p>
-            <button class="btn-primary" id="applyBtn2">Solicitar Ahora</button>
-        </div>
-    </section>
+<footer>
+    <div class="container">© 2026 XC_机构. Todos los derechos reservados.</div>
+</footer>
 
-    <!-- 申请弹窗 -->
-    <div class="modal" id="applyModal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeModal">&times;</span>
-            <h2 class="modal-title">Nuestro Equipo de Soporte</h2>
-            <div class="avatar-grid">
-                <div class="avatar-item">
-                    <a href="https://enlace1.com" target="_blank">
-                        <img src="https://picsum.photos/id/1001/100" alt="Avatar 1" class="avatar-img">
-                    </a>
-                    <div class="avatar-name">Juan S.</div>
-                </div>
-                <div class="avatar-item">
-                    <a href="https://enlace2.com" target="_blank">
-                        <img src="https://picsum.photos/id/1002/100" alt="Avatar 2" class="avatar-img">
-                    </a>
-                    <div class="avatar-name">Maria R.</div>
-                </div>
-                <div class="avatar-item">
-                    <a href="https://enlace3.com" target="_blank">
-                        <img src="https://picsum.photos/id/1003/100" alt="Avatar 3" class="avatar-img">
-                    </a>
-                    <div class="avatar-name">Pedro L.</div>
-                </div>
-                <div class="avatar-item">
-                   
+<script>
+    function openModal() {
+        document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+    window.onclick = function(e) {
+        const modal = document.getElementById('modal');
+        if (e.target === modal) modal.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
