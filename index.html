@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xc_机构 | Guild de Streaming de Entretenimiento</title>
+    <title>XC_Institución | Guild de Streaming de Entretenimiento</title>
     <style>
         * {
             margin: 0;
@@ -185,16 +185,67 @@
             font-size: 12px;
             color: #666;
         }
-        /* 申请区域 */
-        .apply-section {
-            padding: 40px 0;
+        /* 申请弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 16px;
+            padding: 24px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+        }
+        .modal-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .avatar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .avatar-item {
             text-align: center;
         }
-        .apply-section p {
-            max-width: 400px;
-            margin: 0 auto 24px;
-            font-size: 16px;
-            color: #666;
+        .avatar-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fe2c55;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .avatar-img:hover {
+            transform: scale(1.05);
+        }
+        .avatar-name {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 500;
         }
         /* 页脚 */
         footer {
@@ -231,12 +282,12 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="logo.png" alt="xc_机构 Logo" class="logo-img">
-                    <div class="logo-text">xc_机构</div>
+                    <img src="logo.png" alt="XC_Institución Logo" class="logo-img">
+                    <div class="logo-text">XC_Institución</div>
                 </div>
                 <div class="header-actions">
-                    <button><<<i class="fa fa-search"></</</i></button>
-                    <button><<<i class="fa fa-user"></</</i></button>
+                    <button><<i class="fa fa-search"></</i></button>
+                    <button><<i class="fa fa-user"></</i></button>
                 </div>
             </div>
         </div>
@@ -247,7 +298,7 @@
         <div class="container">
             <h1>Únete a Nuestra Guild de Streaming de Entretenimiento</h1>
             <p>Conviértete en parte de la comunidad de streamers más vibrante de Latinoamérica y crece junto a nosotros.</p>
-            <a href="https://tu-enlace-de-solicitud.com" target="_blank"><button class="btn-primary">Solicitar Ahora</button></a>
+            <button class="btn-primary" id="applyBtn">Solicitar Ahora</button>
         </div>
     </section>
 
@@ -260,22 +311,22 @@
             </div>
             <div class="feature-cards">
                 <div class="feature-card">
-                    <div class="feature-icon"><<<i class="fa fa-users"></</</i></div>
+                    <div class="feature-icon"><<i class="fa fa-users"></</i></div>
                     <h3>Comunidad Apoyativa</h3>
                     <p>Conéctate con otros streamers, comparte experiencias y aprende juntos.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><<<i class="fa fa-bullhorn"></</</i></div>
+                    <div class="feature-icon"><<i class="fa fa-bullhorn"></</i></div>
                     <h3>Promoción Exclusiva</h3>
                     <p>Obtén exposición en nuestras plataformas y eventos para aumentar tu audiencia.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><<<i class="fa fa-money"></</</i></div>
+                    <div class="feature-icon"><<i class="fa fa-money"></</i></div>
                     <h3>Oportunidades de Ingreso</h3>
                     <p>Accede a patrocinios, colaboraciones y programas de monetización exclusivos.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><<<i class="fa fa-graduation-cap"></</</i></div>
+                    <div class="feature-icon"><<i class="fa fa-graduation-cap"></</i></div>
                     <h3>Formación Profesional</h3>
                     <p>Recibe capacitación en contenido, crecimiento y gestión de tu canal.</p>
                 </div>
@@ -328,27 +379,36 @@
         <div class="container">
             <div class="section-title">
                 <span>¡Únete!</span>
-                <h2>Forma Parte de xc_机构</h2>
+                <h2>Forma Parte de XC_Institución</h2>
             </div>
             <p>Si te apasiona el streaming y quieres crecer como profesional, no esperes más. Solicita tu ingreso a nuestra guild.</p>
-            <a href="https://tu-enlace-de-solicitud.com" target="_blank"><button class="btn-primary">Solicitar Ahora</button></a>
+            <button class="btn-primary" id="applyBtn2">Solicitar Ahora</button>
         </div>
     </section>
 
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">Acerca de Nosotros</a>
-                <a href="#">Nuestros Streamers</a>
-                <a href="#">Solicitar Ingreso</a>
-                <a href="#">Contacto</a>
-            </div>
-            <div class="copyright">© 2026 xc_机构. Todos los derechos reservados.</div>
-        </div>
-    </footer>
-
-    <!-- Font Awesome CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"></script>
-</body>
-</html>
+    <!-- 申请弹窗 -->
+    <div class="modal" id="applyModal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <h2 class="modal-title">Nuestro Equipo de Soporte</h2>
+            <div class="avatar-grid">
+                <div class="avatar-item">
+                    <a href="https://enlace1.com" target="_blank">
+                        <img src="https://picsum.photos/id/1001/100" alt="Avatar 1" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Juan S.</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="https://enlace2.com" target="_blank">
+                        <img src="https://picsum.photos/id/1002/100" alt="Avatar 2" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Maria R.</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="https://enlace3.com" target="_blank">
+                        <img src="https://picsum.photos/id/1003/100" alt="Avatar 3" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Pedro L.</div>
+                </div>
+                <div class="avatar-item">
+                   
