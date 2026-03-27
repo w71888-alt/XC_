@@ -1,150 +1,354 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>XC_ Agency</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xc_机构 | Guild de Streaming de Entretenimiento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        /* 头部导航 */
+        header {
+            background-color: #fff;
+            padding: 12px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+        .header-actions button {
+            background-color: transparent;
+            border: none;
+            color: #666;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* 英雄区 */
+        .hero {
+            background: linear-gradient(135deg, #0a2a3a 0%, #1a3a4a 50%, #0f2a3a 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 16px;
+            opacity: 0.8;
+            max-width: 400px;
+            margin: 0 auto 24px;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #fe2c55, #ff5e62);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(254,44,85,0.3);
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(254,44,85,0.4);
+        }
+        /* 特色板块 */
+        .features {
+            padding: 40px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .section-title span {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #fe2c551a;
+            color: #fe2c55;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .section-title h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .feature-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #fe2c551a;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fe2c55;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+        }
+        /* 主播展示 */
+        .streamers {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+        }
+        .streamer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .streamer-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .streamer-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        .streamer-info {
+            padding: 12px;
+        }
+        .streamer-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .streamer-category {
+            font-size: 12px;
+            color: #666;
+        }
+        /* 申请区域 */
+        .apply-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .apply-section p {
+            max-width: 400px;
+            margin: 0 auto 24px;
+            font-size: 16px;
+            color: #666;
+        }
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 24px 0;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #fe2c55;
+        }
+        .copyright {
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
 </head>
-
-<body class="bg-black text-white overflow-x-hidden">
-
-  <!-- 顶部栏（像抖音手机版） -->
-  <div class="fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-black/60 backdrop-blur z-50">
-    <img src="logo.png" class="h-10" />
-    <button onclick="openModal()" class="bg-white text-black px-4 py-1 rounded-full text-sm">
-      Aplicar
-    </button>
-  </div>
-
-  <!-- 主视频区域（仿抖音滑动） -->
-  <div class="pt-16">
-
-    <!-- 视频卡片1 -->
-    <section class="h-screen relative flex items-end px-4 pb-20">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-
-      <div class="relative z-10">
-        <h1 class="text-3xl font-bold mb-2">Gana dinero en TikTok</h1>
-        <p class="text-gray-300 text-sm mb-4">Empieza hoy sin experiencia</p>
-        <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-full">
-          Aplicar Ahora
-        </button>
-      </div>
-
-      <!-- 右侧按钮区 -->
-      <div class="absolute right-4 bottom-32 flex flex-col items-center gap-6">
-        <div class="text-center">
-          <img src="https://i.pravatar.cc/60?img=1" class="rounded-full mb-1" />
-          <p class="text-xs">+Seguir</p>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="xc_机构 Logo" class="logo-img">
+                    <div class="logo-text">xc_机构</div>
+                </div>
+                <div class="header-actions">
+                    <button><<<i class="fa fa-search"></</</i></button>
+                    <button><<<i class="fa fa-user"></</</i></button>
+                </div>
+            </div>
         </div>
-        <div class="text-center text-sm">❤️<br>1.2K</div>
-        <div class="text-center text-sm">💬<br>320</div>
-      </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="hero">
+        <div class="container">
+            <h1>Únete a Nuestra Guild de Streaming de Entretenimiento</h1>
+            <p>Conviértete en parte de la comunidad de streamers más vibrante de Latinoamérica y crece junto a nosotros.</p>
+            <a href="https://tu-enlace-de-solicitud.com" target="_blank"><button class="btn-primary">Solicitar Ahora</button></a>
+        </div>
     </section>
 
-    <!-- 视频卡片2 -->
-    <section class="h-screen relative flex items-end px-4 pb-20">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-
-      <div class="relative z-10">
-        <h1 class="text-3xl font-bold mb-2">Gana hasta $3000 USD</h1>
-        <p class="text-gray-300 text-sm mb-4">Nuestros streamers ya lo hacen</p>
-        <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-full">
-          Aplicar Ahora
-        </button>
-      </div>
-
-      <div class="absolute right-4 bottom-32 flex flex-col items-center gap-6">
-        <div class="text-center">
-          <img src="https://i.pravatar.cc/60?img=2" class="rounded-full mb-1" />
-          <p class="text-xs">+Seguir</p>
+    <!-- 特色板块 -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <span>Nuestras Ventajas</span>
+                <h2>Por Qué Elegirnos</h2>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon"><<<i class="fa fa-users"></</</i></div>
+                    <h3>Comunidad Apoyativa</h3>
+                    <p>Conéctate con otros streamers, comparte experiencias y aprende juntos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><<<i class="fa fa-bullhorn"></</</i></div>
+                    <h3>Promoción Exclusiva</h3>
+                    <p>Obtén exposición en nuestras plataformas y eventos para aumentar tu audiencia.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><<<i class="fa fa-money"></</</i></div>
+                    <h3>Oportunidades de Ingreso</h3>
+                    <p>Accede a patrocinios, colaboraciones y programas de monetización exclusivos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><<<i class="fa fa-graduation-cap"></</</i></div>
+                    <h3>Formación Profesional</h3>
+                    <p>Recibe capacitación en contenido, crecimiento y gestión de tu canal.</p>
+                </div>
+            </div>
         </div>
-        <div class="text-center text-sm">🔥<br>2.5K</div>
-        <div class="text-center text-sm">💬<br>500</div>
-      </div>
     </section>
 
-    <!-- 视频卡片3 -->
-    <section class="h-screen relative flex items-end px-4 pb-20">
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-
-      <div class="relative z-10">
-        <h1 class="text-3xl font-bold mb-2">Trabaja desde casa</h1>
-        <p class="text-gray-300 text-sm mb-4">Solo necesitas tu teléfono</p>
-        <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-full">
-          Aplicar Ahora
-        </button>
-      </div>
-
-      <div class="absolute right-4 bottom-32 flex flex-col items-center gap-6">
-        <div class="text-center">
-          <img src="https://i.pravatar.cc/60?img=3" class="rounded-full mb-1" />
-          <p class="text-xs">+Seguir</p>
+    <!-- 主播展示 -->
+    <section class="streamers">
+        <div class="container">
+            <div class="section-title">
+                <span>Nuestros Streamers</span>
+                <h2>Conoce a Nuestra Familia</h2>
+            </div>
+            <div class="streamer-grid">
+                <div class="streamer-card">
+                    <img src="https://picsum.photos/id/1012/300/200" alt="Streamer 1">
+                    <div class="streamer-info">
+                        <div class="streamer-name">AnaGamer</div>
+                        <div class="streamer-category">Videojuegos</div>
+                    </div>
+                </div>
+                <div class="streamer-card">
+                    <img src="https://picsum.photos/id/1027/300/200" alt="Streamer 2">
+                    <div class="streamer-info">
+                        <div class="streamer-name">CarlosShow</div>
+                        <div class="streamer-category">Entretenimiento</div>
+                    </div>
+                </div>
+                <div class="streamer-card">
+                    <img src="https://picsum.photos/id/1025/300/200" alt="Streamer 3">
+                    <div class="streamer-info">
+                        <div class="streamer-name">SofiaLive</div>
+                        <div class="streamer-category">Belleza</div>
+                    </div>
+                </div>
+                <div class="streamer-card">
+                    <img src="https://picsum.photos/id/1074/300/200" alt="Streamer 4">
+                    <div class="streamer-info">
+                        <div class="streamer-name">DiegoFun</div>
+                        <div class="streamer-category">Humor</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="text-center text-sm">⭐<br>3.1K</div>
-        <div class="text-center text-sm">💬<br>800</div>
-      </div>
     </section>
 
-  </div>
+    <!-- 申请区域 -->
+    <section class="apply-section">
+        <div class="container">
+            <div class="section-title">
+                <span>¡Únete!</span>
+                <h2>Forma Parte de xc_机构</h2>
+            </div>
+            <p>Si te apasiona el streaming y quieres crecer como profesional, no esperes más. Solicita tu ingreso a nuestra guild.</p>
+            <a href="https://tu-enlace-de-solicitud.com" target="_blank"><button class="btn-primary">Solicitar Ahora</button></a>
+        </div>
+    </section>
 
-  <!-- 弹窗 -->
-  <div id="modal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
-    <div class="bg-[#111] p-6 rounded-2xl w-[90%] max-w-md">
-      <h2 class="text-lg font-bold mb-4 text-center">Selecciona un asesor</h2>
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Acerca de Nosotros</a>
+                <a href="#">Nuestros Streamers</a>
+                <a href="#">Solicitar Ingreso</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="copyright">© 2026 xc_机构. Todos los derechos reservados.</div>
+        </div>
+    </footer>
 
-      <div class="grid grid-cols-4 gap-4">
-        <div onclick="goLink('https://link1.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=1" class="rounded-full mx-auto" />
-          <p class="text-xs">Maria</p>
-        </div>
-        <div onclick="goLink('https://link2.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=2" class="rounded-full mx-auto" />
-          <p class="text-xs">Juan</p>
-        </div>
-        <div onclick="goLink('https://link3.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=3" class="rounded-full mx-auto" />
-          <p class="text-xs">Sofia</p>
-        </div>
-        <div onclick="goLink('https://link4.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=4" class="rounded-full mx-auto" />
-          <p class="text-xs">Carlos</p>
-        </div>
-        <div onclick="goLink('https://link5.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=5" class="rounded-full mx-auto" />
-          <p class="text-xs">Ana</p>
-        </div>
-        <div onclick="goLink('https://link6.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=6" class="rounded-full mx-auto" />
-          <p class="text-xs">Diego</p>
-        </div>
-        <div onclick="goLink('https://link7.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=7" class="rounded-full mx-auto" />
-          <p class="text-xs">Lucia</p>
-        </div>
-        <div onclick="goLink('https://link8.com')" class="text-center">
-          <img src="https://i.pravatar.cc/60?img=8" class="rounded-full mx-auto" />
-          <p class="text-xs">Pedro</p>
-        </div>
-      </div>
-
-      <button onclick="closeModal()" class="mt-4 w-full text-gray-400 text-sm">Cerrar</button>
-    </div>
-  </div>
-
-  <script>
-    function openModal() {
-      document.getElementById('modal').classList.remove('hidden');
-      document.getElementById('modal').classList.add('flex');
-    }
-    function closeModal() {
-      document.getElementById('modal').classList.add('hidden');
-    }
-    function goLink(url) {
-      window.open(url, '_blank');
-    }
-  </script>
-
+    <!-- Font Awesome CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"></script>
 </body>
 </html>
