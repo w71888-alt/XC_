@@ -5,71 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XC_ Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at 20% 20%, #1a1a1a, #000000 60%);
+    }
+  </style>
 </head>
-<body class="bg-black text-white">
+<body class="text-white">
 
   <!-- NAVBAR -->
-  <header class="flex justify-between items-center px-8 py-5 bg-black/80 backdrop-blur">
+  <header class="flex justify-between items-center px-8 py-5">
     <div class="flex items-center gap-4">
-      <img src="logo.png" class="h-16 object-contain" />
+      <img src="logo.jpg" class="h-16" />
       <span class="text-2xl font-bold">XC_ Agency</span>
     </div>
-    <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-xl">
+    <button onclick="openModal()" class="bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-2 rounded-full">
       Aplicar
     </button>
   </header>
 
-  <!-- HERO -->
-  <section class="h-[85vh] flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-5xl md:text-7xl font-bold mb-6">
-      Gana Dinero con TikTok LIVE
+  <!-- HERO (类似抖音风格大屏) -->
+  <section class="h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="text-6xl md:text-8xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+      Gana Dinero en TikTok LIVE
     </h1>
-    <p class="text-gray-300 mb-8 max-w-xl">
-      Únete a nuestra agencia y empieza a generar ingresos reales.
+
+    <p class="text-gray-400 text-lg max-w-xl mb-10">
+      Únete a XC_ Agency y conviértete en un streamer profesional.
+      Gana dinero real desde casa.
     </p>
-    <button onclick="openModal()" class="bg-white text-black px-8 py-4 rounded-2xl">
+
+    <button onclick="openModal()" class="bg-white text-black px-10 py-4 rounded-full text-lg">
       Aplicar Ahora
     </button>
   </section>
 
+  <!-- VIDEO STYLE GRID（模仿抖音内容感） -->
+  <section class="py-20 px-6 max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+    <div class="bg-white/10 h-40 rounded-xl"></div>
+  </section>
+
+  <!-- INGRESOS -->
+  <section class="py-24 text-center">
+    <h2 class="text-4xl font-bold mb-6">¿Cuánto puedes ganar?</h2>
+    <p class="text-gray-400 mb-10">Desde $100 hasta más de $3000 USD al mes</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 text-center">
+    <button onclick="openModal()" class="bg-gradient-to-r from-pink-500 to-purple-600 px-12 py-5 rounded-full text-xl">
+      Unirme Ahora
+    </button>
+  </section>
+
   <!-- MODAL -->
-  <div id="modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center">
-    <div class="bg-gray-900 p-8 rounded-2xl max-w-3xl w-full">
+  <div id="modal" class="fixed inset-0 bg-black/90 hidden items-center justify-center">
+    <div class="bg-[#111] p-8 rounded-2xl max-w-3xl w-full">
       <h2 class="text-2xl font-bold mb-6 text-center">Selecciona un asesor</h2>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- 8 AVATARS -->
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=1" class="mx-auto rounded-full mb-2" />
-          <p>User1</p>
+        <div onclick="goLink('https://link1.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=1" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Maria MX</p>
         </div>
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=2" class="mx-auto rounded-full mb-2" />
-          <p>User2</p>
+        <div onclick="goLink('https://link2.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=2" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Juan Live</p>
         </div>
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=3" class="mx-auto rounded-full mb-2" />
-          <p>User3</p>
+        <div onclick="goLink('https://link3.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=3" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Sofia Pro</p>
         </div>
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=4" class="mx-auto rounded-full mb-2" />
-          <p>User4</p>
+        <div onclick="goLink('https://link4.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=4" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Carlos TV</p>
         </div>
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=5" class="mx-auto rounded-full mb-2" />
-          <p>User5</p>
+        <div onclick="goLink('https://link5.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=5" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Ana Star</p>
         </div>
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=6" class="mx-auto rounded-full mb-2" />
-          <p>User6</p>
+        <div onclick="goLink('https://link6.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=6" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Diego Live</p>
         </div>
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=7" class="mx-auto rounded-full mb-2" />
-          <p>User7</p>
+        <div onclick="goLink('https://link7.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=7" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Lucia Pro</p>
         </div>
-        <div onclick="goLink('https://www.tiktok.com/t/ZSkWxbWDQ/')" class="text-center cursor-pointer">
-          <img src="https://i.pravatar.cc/100?img=8" class="mx-auto rounded-full mb-2" />
-          <p>User8</p>
+        <div onclick="goLink('https://link8.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=8" class="mx-auto rounded-full mb-2 border-2 border-pink-500" />
+          <p>Pedro MX</p>
         </div>
       </div>
 
@@ -84,11 +116,9 @@
       document.getElementById('modal').classList.remove('hidden');
       document.getElementById('modal').classList.add('flex');
     }
-
     function closeModal() {
       document.getElementById('modal').classList.add('hidden');
     }
-
     function goLink(url) {
       window.open(url, '_blank');
     }
