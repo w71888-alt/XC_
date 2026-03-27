@@ -11,110 +11,88 @@
   <!-- NAVBAR -->
   <header class="flex justify-between items-center px-8 py-5 bg-black/80 backdrop-blur">
     <div class="flex items-center gap-4">
-      <img src="logo.jpg" alt="logo" class="h-14 md:h-16 object-contain" />
-      <span class="text-2xl font-bold tracking-wide">XC_ Agency</span>
+      <img src="logo.jpg" class="h-16 object-contain" />
+      <span class="text-2xl font-bold">XC_ Agency</span>
     </div>
-    <button onclick="window.open('https://tu-link-de-aplicacion.com')" class="bg-white text-black px-6 py-2 rounded-xl font-semibold">
+    <button onclick="openModal()" class="bg-white text-black px-6 py-2 rounded-xl">
       Aplicar
     </button>
   </header>
 
   <!-- HERO -->
   <section class="h-[85vh] flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-      Convierte tu tiempo en dinero
+    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+      Gana Dinero con TikTok LIVE
     </h1>
-    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
-      Únete a XC_ Agency y empieza a generar ingresos con TikTok LIVE.
-      No necesitas experiencia, nosotros te enseñamos todo.
+    <p class="text-gray-300 mb-8 max-w-xl">
+      Únete a nuestra agencia y empieza a generar ingresos reales.
     </p>
-    <div class="flex gap-4">
-      <button onclick="window.open('https://tu-link-de-aplicacion.com')" class="bg-white text-black px-8 py-4 text-lg rounded-2xl">
-        Aplicar Ahora
-      </button>
-      <button onclick="window.open('https://wa.me/tu_numero')" class="bg-green-500 px-8 py-4 text-lg rounded-2xl">
-        WhatsApp
-      </button>
-    </div>
-  </section>
-
-  <!-- INGRESOS -->
-  <section class="py-24 text-center bg-gradient-to-b from-black to-gray-900">
-    <h2 class="text-4xl font-bold mb-6">¿Cuánto puedes ganar?</h2>
-    <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-10">
-      Nuestros streamers generan entre <span class="text-white font-bold">$100 y $3000 USD</span> al mes.
-      Los mejores superan los <span class="text-pink-400 font-bold">$5000 USD</span>.
-    </p>
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <div class="bg-white/5 p-6 rounded-2xl">
-        <h3 class="text-2xl font-bold">Principiante</h3>
-        <p class="text-gray-400">$100 - $500</p>
-      </div>
-      <div class="bg-white/5 p-6 rounded-2xl">
-        <h3 class="text-2xl font-bold">Intermedio</h3>
-        <p class="text-gray-400">$500 - $2000</p>
-      </div>
-      <div class="bg-white/5 p-6 rounded-2xl">
-        <h3 class="text-2xl font-bold">Top Streamer</h3>
-        <p class="text-gray-400">$2000+</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFICIOS -->
-  <section class="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-    <div>
-      <h3 class="text-xl font-bold mb-3">Entrenamiento Profesional</h3>
-      <p class="text-gray-400">Te enseñamos cómo hacer directos que generan dinero desde cero</p>
-    </div>
-    <div>
-      <h3 class="text-xl font-bold mb-3">Estrategia de Monetización</h3>
-      <p class="text-gray-400">Aprende a convertir espectadores en ingresos reales</p>
-    </div>
-    <div>
-      <h3 class="text-xl font-bold mb-3">Soporte Diario</h3>
-      <p class="text-gray-400">Equipo dedicado a ayudarte todos los días</p>
-    </div>
-  </section>
-
-  <!-- PROCESO -->
-  <section class="py-24 text-center bg-white/5">
-    <h2 class="text-4xl font-bold mb-10">¿Cómo empezar?</h2>
-    <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-      <div class="bg-black p-6 rounded-xl">1. Aplicar</div>
-      <div class="bg-black p-6 rounded-xl">2. Entrenamiento</div>
-      <div class="bg-black p-6 rounded-xl">3. Transmitir</div>
-      <div class="bg-black p-6 rounded-xl">4. Ganar dinero</div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIOS -->
-  <section class="py-24 text-center">
-    <h2 class="text-4xl font-bold mb-10">Testimonios</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-      <div class="bg-white/5 p-6 rounded-xl">"Gané $1200 en mi primer mes"</div>
-      <div class="bg-white/5 p-6 rounded-xl">"Ahora vivo solo de TikTok"</div>
-      <div class="bg-white/5 p-6 rounded-xl">"El equipo me ayudó mucho"</div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="py-24 text-center bg-gradient-to-r from-pink-500 to-purple-600">
-    <h2 class="text-4xl font-bold mb-6">Empieza hoy mismo</h2>
-    <button onclick="window.open('https://tu-link-de-aplicacion.com')" class="bg-black text-white px-10 py-4 text-lg rounded-2xl">
-      Unirme Ahora
+    <button onclick="openModal()" class="bg-white text-black px-8 py-4 rounded-2xl">
+      Aplicar Ahora
     </button>
   </section>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/tu_numero" target="_blank" class="fixed bottom-6 right-6 bg-green-500 px-6 py-3 rounded-full shadow-lg">
-    WhatsApp
-  </a>
+  <!-- MODAL -->
+  <div id="modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center">
+    <div class="bg-gray-900 p-8 rounded-2xl max-w-3xl w-full">
+      <h2 class="text-2xl font-bold mb-6 text-center">Selecciona un asesor</h2>
 
-  <!-- FOOTER -->
-  <footer class="py-10 text-center text-gray-500">
-    © 2026 XC_ Agency
-  </footer>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- 8 AVATARS -->
+        <div onclick="goLink('https://link1.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=1" class="mx-auto rounded-full mb-2" />
+          <p>User1</p>
+        </div>
+        <div onclick="goLink('https://link2.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=2" class="mx-auto rounded-full mb-2" />
+          <p>User2</p>
+        </div>
+        <div onclick="goLink('https://link3.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=3" class="mx-auto rounded-full mb-2" />
+          <p>User3</p>
+        </div>
+        <div onclick="goLink('https://link4.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=4" class="mx-auto rounded-full mb-2" />
+          <p>User4</p>
+        </div>
+        <div onclick="goLink('https://link5.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=5" class="mx-auto rounded-full mb-2" />
+          <p>User5</p>
+        </div>
+        <div onclick="goLink('https://link6.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=6" class="mx-auto rounded-full mb-2" />
+          <p>User6</p>
+        </div>
+        <div onclick="goLink('https://link7.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=7" class="mx-auto rounded-full mb-2" />
+          <p>User7</p>
+        </div>
+        <div onclick="goLink('https://link8.com')" class="text-center cursor-pointer">
+          <img src="https://i.pravatar.cc/100?img=8" class="mx-auto rounded-full mb-2" />
+          <p>User8</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-6">
+        <button onclick="closeModal()" class="text-gray-400">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('modal').classList.add('flex');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+
+    function goLink(url) {
+      window.open(url, '_blank');
+    }
+  </script>
 
 </body>
 </html>
