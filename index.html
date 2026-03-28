@@ -398,155 +398,63 @@
         </div>
     </section>
 
-  <!-- 弹窗 -->
-<div class="modal" id="modalSolicitud">
-  <style>
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: #2a2438; /* 深紫背景 */
-      width: 92%;
-      max-width: 420px;
-      border-radius: 16px;
-      padding: 32px 24px;
-      position: relative;
-      color: #fff;
-    }
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #3a344a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      cursor: pointer;
-      color: #fff;
-    }
-    .modal-title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .modal-desc {
-      text-align: center;
-      font-size: 16px;
-      color: #ccc;
-      margin-bottom: 32px;
-      line-height: 1.5;
-    }
-    .manager-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-    .manager-card {
-      background: #3a344a;
-      border-radius: 12px;
-      padding: 20px 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .manager-card:hover {
-      background: #4a425a;
-      transform: translateY(-2px);
-    }
-    .manager-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #d4af37; /* 金色边框 */
-    }
-    .manager-avatar img {
-      width: 60%;
-      height: 60%;
-      object-fit: contain;
-    }
-    .manager-name {
-      font-size: 16px;
-      font-weight: 500;
-      color: #fff;
-    }
-  </style>
-  <div class="modal-content">
-    <span class="modal-close" onclick="cerrarModal()">&times;</span>
-    <h3 class="modal-title">Elige a tu manager</h3>
-    <p class="modal-desc">Selecciona al manager de tu preferencia y haz clic en su foto para acceder a su enlace de solicitud.</p>
-    <div class="manager-grid">
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="logo.png" alt="Xingchen Global">
+    <!-- 弹窗 -->
+    <div class="modal" id="modalSolicitud">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal()">&times;</span>
+            <h3 class="modal-title">Contacta con nosotros</h3>
+            <div class="avatar-grid">
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="logo.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Xingchen Global</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="LI.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Xc-Lilian</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="HI.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Hi🥰</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="Lucky.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Lucky</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="TING.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Ting</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="Tom.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Tom-XC</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="XC.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">☯️🕊️Xc🕊️☯️</div>
+                </div>
+                <div class="avatar-item">
+                    <a href="TikTok" target="_blank">
+                        <img src="nana.png" class="avatar-img">
+                    </a>
+                    <div class="avatar-name">Nana</div>
+                </div>
+            </div>
         </div>
-        <div class="manager-name">@XingchenGlobal</div>
-      </a>
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="LI.png" alt="Xc-Lilian">
-        </div>
-        <div class="manager-name">@Xc-Lilian</div>
-      </a>
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="HI.png" alt="Hi🥰">
-        </div>
-        <div class="manager-name">@Hi🥰</div>
-      </a>
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="Lucky.png" alt="Lucky">
-        </div>
-        <div class="manager-name">@Lucky</div>
-      </a>
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="TING.png" alt="Ting">
-        </div>
-        <div class="manager-name">@Ting</div>
-      </a>
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="Tom.png" alt="Tom-XC">
-        </div>
-        <div class="manager-name">@Tom-XC</div>
-      </a>
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="XC.png" alt="☯️🕊️Xc🕊️☯️">
-        </div>
-        <div class="manager-name">@Xc_Official</div>
-      </a>
-      <a href="TikTok" target="_blank" class="manager-card">
-        <div class="manager-avatar">
-          <img src="nana.png" alt="Nana">
-        </div>
-        <div class="manager-name">@Nana</div>
-      </a>
     </div>
-  </div>
-</div>
 
     <!-- 页脚 -->
     <footer>
