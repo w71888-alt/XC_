@@ -435,7 +435,7 @@
                     <div class="avatar-name">Ting</div>
                 </div>
                 <div class="avatar-item">
-                    <a href="https://www.tiktok.com/t/ZMBKXv5bu/" target="_blank">
+                    <a href="https://www.tiktok.com/t/ZSuxTfxRh/" target="_blank">
                         <img src="Tom.png" class="avatar-img">
                     </a>
                     <div class="avatar-name">Tom-XC</div>
@@ -483,5 +483,41 @@
             if (e.target === modal) cerrarModal();
         }
     </script>
+ </script>
+
+    <!-- WhatsApp 浮动按钮 -->
+    <a href="https://wa.me/+86 13225031810" target="_blank" class="whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25D366;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
+            animation: pulse 1.5s infinite;
+        }
+
+        .whatsapp-float img {
+            width: 30px;
+            height: 30px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+
 </body>
 </html>
